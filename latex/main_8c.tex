@@ -1,0 +1,68 @@
+\hypertarget{main_8c}{}\section{main.\+c File Reference}
+\label{main_8c}\index{main.\+c@{main.\+c}}
+
+
+Функция main.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}exit\+\_\+codes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}str\+\_\+processing.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a8f80f888c30735ca5629ee3d25f37694}\label{main_8c_a8f80f888c30735ca5629ee3d25f37694}} 
+\#define {\bfseries F\+I\+L\+E\+\_\+\+T\+O\+\_\+\+R\+E\+AD}~\char`\"{}read.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8c_a89ff6d1018bdfd28bdc5bdcb2fe925d4}\label{main_8c_a89ff6d1018bdfd28bdc5bdcb2fe925d4}} 
+\#define {\bfseries F\+I\+L\+E\+\_\+\+T\+O\+\_\+\+W\+R\+I\+TE}~\char`\"{}write.\+txt\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Функция main. 
+
+Функция включает в себя работу с входным файлом и создает выходной, куда записывает данные 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Содержит обработку входного файла\+: его открытие и проверку на корректность
+
+
+\begin{DoxyCode}
+FILE *fr = fopen(FILE\_TO\_READ, \textcolor{stringliteral}{"r"});
+\textcolor{keywordflow}{if} (!fr)
+\{
+    printf(\textcolor{stringliteral}{"The file to read does not exist.\(\backslash\)n"});
+    exit\_code = READ\_ERROR;
+\}
+\end{DoxyCode}
+
+
+Обработка строки в цикле\+: ее перевод(вызов необходимых функций) и запись в выходной файл
+
+
+\begin{DoxyCode}
+hec\_number = \hyperlink{str__processing_8c_a9e35d52c5c113b3c4cd685ead752d551}{translate}(bin\_number);
+\hyperlink{str__processing_8c_a7dbe1ec23bd7aeafc02add2088b28aae}{inverse}(&hec\_number);
+fwrite(hec\_number, strlen(hec\_number), 1, fw);
+\end{DoxyCode}
